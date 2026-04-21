@@ -33,7 +33,7 @@ export default function Quote() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full h-[420px] md:h-[520px] flex items-center justify-center text-center font-crimson text-white overflow-hidden">
+    <section ref={sectionRef} className="relative w-full h-[380px] sm:h-[420px] md:h-[520px] flex items-center justify-center text-center font-crimson text-white overflow-hidden">
 
       {/* Background Image with zoom and parallax effect */}
       <div 
@@ -58,13 +58,13 @@ export default function Quote() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl px-6">
+      <div className="relative z-10 max-w-4xl px-5 md:px-6">
         
-        <div className="text-[40px] md:text-[52px] leading-[1]">
+        <div className="text-2xl sm:text-3xl md:text-[40px] lg:text-[52px] leading-[1.2] md:leading-[1]">
           
           {/* Opening Quote Mark */}
           <div 
-            className={`text-[120px] opacity-80 -mb-8 md:-mb-12 transition-all duration-700 ease-out delay-200 ${
+            className={`text-7xl sm:text-8xl md:text-[120px] opacity-80 -mb-4 md:-mb-8 lg:-mb-12 transition-all duration-700 ease-out delay-200 ${
               isVisible 
                 ? "opacity-80 translate-y-0 scale-100" 
                 : "opacity-0 translate-y-8 scale-75"
@@ -87,7 +87,7 @@ export default function Quote() {
 
           {/* Closing Quote Mark */}
           <div 
-            className={`text-[120px] mt-8 opacity-80 transition-all duration-700 ease-out delay-400 ${
+            className={`text-7xl sm:text-8xl md:text-[120px] mt-4 md:mt-8 opacity-80 transition-all duration-700 ease-out delay-400 ${
               isVisible 
                 ? "opacity-80 translate-y-0 scale-100" 
                 : "opacity-0 translate-y-8 scale-75"

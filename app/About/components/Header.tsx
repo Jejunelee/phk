@@ -58,29 +58,32 @@ export default function Header() {
       />
 
       {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+      <div className="absolute inset-0 flex flex-col items-center justify-end md:justify-center text-center px-4 md:px-6 pb-16 md:pb-0">
         
-        {/* Spacer to push content down */}
-        <div className="mt-20 md:mt-70"></div>
+        {/* Spacer - removed for mobile since we use justify-end, kept for desktop */}
+        <div className="hidden md:block md:mt-20 lg:mt-70"></div>
 
-        {/* Sun Logo with scale and fade */}
+        {/* Sun Logo with scale and fade - responsive sizing with proportional scaling */}
         <div 
-          className={`transition-all duration-700 ease-out delay-200 ${
+          className={`transition-all duration-700 ease-out delay-200 w-full max-w-[200px] md:max-w-none mb-4 md:mb-0 ${
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
           }`}
         >
-          <Image
-            src="/PHK/6.png"
-            alt="Sun Logo"
-            width={300}
-            height={300}
-            className="opacity-100"
-          />
+          <div className="relative w-full h-auto">
+            <Image
+              src="/PHK/6.png"
+              alt="Sun Logo"
+              width={300}
+              height={300}
+              className="w-full h-auto"
+              style={{ maxWidth: '300px', margin: '0 auto' }}
+            />
+          </div>
         </div>
 
-        {/* Title with fade up */}
+        {/* Title with fade up - responsive typography */}
         <h1 
-          className={`font-crimson text-white text-6xl md:text-8xl tracking-wide transition-all duration-700 ease-out delay-400 ${
+          className={`font-crimson text-white text-5xl sm:text-5xl md:text-6xl lg:text-8xl tracking-wide transition-all duration-700 ease-out delay-400 max-w-[90%] md:max-w-full ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}
         >

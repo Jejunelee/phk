@@ -28,30 +28,34 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent to-100%" />
 
       {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+      <div className="absolute inset-0 flex flex-col items-center justify-end md:justify-center text-center px-4 md:px-6 pb-16 md:pb-0">
         
-        {/* Spacer to push content down */}
-        <div className="mt-20 md:mt-70"></div>
+        {/* Spacer - removed for mobile since we use justify-end, kept for desktop */}
+        <div className="hidden md:block md:mt-20 lg:mt-70"></div>
 
-        {/* Sun Logo - clean fade */}
+        {/* Sun Logo - responsive sizing with proportional scaling */}
         <div
-          className="transition-all duration-700 ease-out"
+          className="transition-all duration-700 ease-out w-full max-w-[200px] md:max-w-none mb-4 md:mb-0"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(20px)'
           }}
         >
-          <Image
-            src="/PHK/6.png"
-            alt="Sun Logo"
-            width={300}
-            height={300}
-          />
+          <div className="relative w-full h-auto">
+            <Image
+              src="/PHK/6.png"
+              alt="Sun Logo"
+              width={300}
+              height={300}
+              className="w-full h-auto"
+              style={{ maxWidth: '300px', margin: '0 auto' }}
+            />
+          </div>
         </div>
 
-        {/* Title - clean fade */}
+        {/* Title - responsive typography with proportional scaling */}
         <h1
-          className="font-crimson text-white text-6xl md:text-8xl tracking-wide transition-all duration-700 ease-out delay-100"
+          className="font-crimson text-white text-4xl sm:text-4xl md:text-6xl lg:text-8xl tracking-wide transition-all duration-700 ease-out delay-100 max-w-[90%] md:max-w-full"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateY(0)' : 'translateY(20px)'

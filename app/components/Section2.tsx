@@ -38,7 +38,7 @@ export default function Section2() {
 
       {/* Top Image - Scale and fade animation */}
       <div 
-        className={`relative w-full h-[504px] md:h-[624px] overflow-hidden transition-all duration-1000 ease-out ${
+        className={`relative w-full h-[300px] sm:h-[400px] md:h-[504px] lg:h-[624px] overflow-hidden transition-all duration-1000 ease-out ${
           isVisible ? "opacity-100 scale-100" : "opacity-0 scale-105"
         }`}
       >
@@ -52,16 +52,16 @@ export default function Section2() {
       </div>
 
       {/* Bottom Content */}
-      <div className="w-full bg-[#5A2D1C] text-white py-12 px-7 md:px-20 lg:px-34 font-crimson overflow-hidden">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-20">
+      <div className="w-full bg-[#5A2D1C] text-white py-8 md:py-12 px-5 md:px-7 lg:px-20 xl:px-34 font-crimson overflow-hidden">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-20">
 
           {/* Left Title - Slide from left */}
           <div 
-            className={`flex items-center transition-all duration-700 ease-out delay-100 ${
+            className={`flex items-center justify-center md:justify-start transition-all duration-700 ease-out delay-100 ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
             }`}
           >
-            <h3 className="font-semibold italic text-[50px] md:text-[58px] text-[#E7B879]">
+            <h3 className="font-semibold italic text-4xl sm:text-5xl md:text-[50px] lg:text-[58px] text-[#E7B879] text-center md:text-left">
               What we do
             </h3>
           </div>
@@ -71,60 +71,60 @@ export default function Section2() {
 
             {/* Classes */}
             <div 
-              className={`py-12 pr-10 border-b sm:border-r border-white/20 transition-all duration-700 ease-out delay-200 ${
+              className={`py-8 md:py-12 px-0 sm:pr-6 md:pr-10 border-b sm:border-r border-white/20 transition-all duration-700 ease-out delay-200 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
             >
-              <div className="flex items-center gap-4">
-                <BookOpen size={29} color="#E7B879" className="transition-transform duration-300 group-hover:scale-110" />
-                <h4 className="text-[34px] md:text-[38px] text-[#E7B879] font-semibold">Classes</h4>
+              <div className="flex items-center gap-3 md:gap-4">
+                <BookOpen size={24} className="md:w-[29px] md:h-[29px]" color="#E7B879" />
+                <h4 className="text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] text-[#E7B879] font-semibold">Classes</h4>
               </div>
-              <p className="text-[20px] md:text-[22px] text-white leading-relaxed mt-3">
+              <p className="text-base sm:text-lg md:text-[20px] lg:text-[22px] text-white leading-relaxed mt-2 md:mt-3">
                 Hands-on masterclasses rooted in regional technique and heritage ingredients
               </p>
             </div>
 
             {/* Tastings */}
             <div 
-              className={`py-12 pl-0 sm:pl-10 border-b border-white/20 transition-all duration-700 ease-out delay-300 ${
+              className={`py-8 md:py-12 px-0 sm:pl-6 md:pl-10 border-b border-white/20 transition-all duration-700 ease-out delay-300 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
             >
-              <div className="flex items-center gap-4">
-                <Utensils size={29} color="#E7B879" className="transition-transform duration-300 group-hover:scale-110" />
-                <h4 className="text-[34px] md:text-[38px] text-[#E7B879] font-semibold">Tastings</h4>
+              <div className="flex items-center gap-3 md:gap-4">
+                <Utensils size={24} className="md:w-[29px] md:h-[29px]" color="#E7B879" />
+                <h4 className="text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] text-[#E7B879] font-semibold">Tastings</h4>
               </div>
-              <p className="text-[20px] md:text-[22px] text-white leading-relaxed mt-3">
+              <p className="text-base sm:text-lg md:text-[20px] lg:text-[22px] text-white leading-relaxed mt-2 md:mt-3">
                 Curated experiences showcasing heirloom flavors and ancestral recipes
               </p>
             </div>
 
             {/* Talks */}
             <div 
-              className={`py-12 pr-10 border-b-0 sm:border-r border-white/20 transition-all duration-700 ease-out delay-400 ${
+              className={`py-8 md:py-12 px-0 sm:pr-6 md:pr-10 border-b sm:border-b-0 sm:border-r border-white/20 transition-all duration-700 ease-out delay-400 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
             >
-              <div className="flex items-center gap-4">
-                <Mic size={29} color="#E7B879" className="transition-transform duration-300 group-hover:scale-110" />
-                <h4 className="text-[34px] md:text-[38px] text-[#E7B879] font-semibold">Talks</h4>
+              <div className="flex items-center gap-3 md:gap-4">
+                <Mic size={24} className="md:w-[29px] md:h-[29px]" color="#E7B879" />
+                <h4 className="text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] text-[#E7B879] font-semibold">Talks</h4>
               </div>
-              <p className="text-[20px] md:text-[22px] text-white leading-relaxed mt-3">
+              <p className="text-base sm:text-lg md:text-[20px] lg:text-[22px] text-white leading-relaxed mt-2 md:mt-3">
                 Hands-on masterclasses rooted in regional technique and heritage ingredients
               </p>
             </div>
 
             {/* Promotions */}
             <div 
-              className={`py-12 pl-0 sm:pl-10 transition-all duration-700 ease-out delay-500 ${
+              className={`py-8 md:py-12 px-0 sm:pl-6 md:pl-10 transition-all duration-700 ease-out delay-500 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
             >
-              <div className="flex items-center gap-4">
-                <ArrowUpRight size={29} color="#E7B879" className="transition-transform duration-300 group-hover:scale-110" />
-                <h4 className="text-[34px] md:text-[38px] text-[#E7B879] font-semibold">Promotions</h4>
+              <div className="flex items-center gap-3 md:gap-4">
+                <ArrowUpRight size={24} className="md:w-[29px] md:h-[29px]" color="#E7B879" />
+                <h4 className="text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] text-[#E7B879] font-semibold">Promotions</h4>
               </div>
-              <p className="text-[20px] md:text-[22px] text-white leading-relaxed mt-3">
+              <p className="text-base sm:text-lg md:text-[20px] lg:text-[22px] text-white leading-relaxed mt-2 md:mt-3">
                 Ticketed lunch and dinner events bringing heritage cuisine to the table
               </p>
             </div>

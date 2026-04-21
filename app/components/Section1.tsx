@@ -35,25 +35,25 @@ export default function Section1() {
   return (
     <section 
       ref={sectionRef}
-      className="w-full bg-[#F5F3EF] py-24 px-6 md:px-16 lg:px-28"
+      className="w-full bg-[#F5F3EF] py-12 md:py-24 px-4 md:px-6 lg:px-16 xl:px-28"
     >
       <div className="max-w-6xl mx-auto">
         
-        {/* Title with fade-up animation */}
+        {/* Title with fade-up animation - responsive typography */}
         <h2 
-          className={`font-crimson text-[32px] md:text-[38px] text-[#2D2926] mb-16 transition-all duration-700 ease-out ${
+          className={`font-crimson text-2xl sm:text-3xl md:text-[38px] text-[#2D2926] mb-8 md:mb-16 transition-all duration-700 ease-out ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
           Our Culinary Heritage is Disappearing
         </h2>
 
-        {/* Two Column Layout with staggered animation */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 font-crimson text-[18px] leading-[1.25] text-[#2D2926]">
+        {/* Two Column Layout with staggered animation - responsive gap and text size */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 font-crimson text-base sm:text-lg md:text-[18px] leading-[1.25] text-[#2D2926]">
           
           {/* Left Column */}
           <div 
-            className={`space-y-6 transition-all duration-700 ease-out delay-100 ${
+            className={`space-y-4 md:space-y-6 transition-all duration-700 ease-out delay-100 ${
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
             }`}
           >
@@ -81,7 +81,7 @@ export default function Section1() {
 
           {/* Right Column */}
           <div 
-            className={`space-y-6 transition-all duration-700 ease-out delay-200 ${
+            className={`space-y-4 md:space-y-6 transition-all duration-700 ease-out delay-200 ${
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             }`}
           >

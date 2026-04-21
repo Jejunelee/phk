@@ -13,7 +13,7 @@ export default function Section3() {
   const slides = [
     {
       id: 0,
-      imageSrc: "/PHK/3.png",
+      imageSrc: "/PHK/11.png",
       logoSrc: "/PHK/13.png",
       name: "Chef Reggie Aspiras",
       descriptions: [
@@ -76,12 +76,12 @@ export default function Section3() {
   };
 
   return (
-    <section ref={sectionRef} className="w-full bg-[#F5F3EF] py-24 px-6 md:px-16 lg:px-28 font-crimson overflow-hidden">
+    <section ref={sectionRef} className="w-full bg-[#F5F3EF] py-12 md:py-24 px-4 md:px-6 lg:px-16 xl:px-28 font-crimson overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Title Section - Fade up with staggered children */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
           <h2 
-            className={`font-semibold text-[34px] md:text-[40px] text-[#2D2926] mb-6 transition-all duration-700 ease-out ${
+            className={`font-semibold text-2xl sm:text-3xl md:text-[34px] lg:text-[40px] text-[#2D2926] mb-4 md:mb-6 transition-all duration-700 ease-out ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -89,7 +89,7 @@ export default function Section3() {
           </h2>
 
           <p 
-            className={`text-[18px] leading-[1.8] text-[#2D2926]/90 transition-all duration-700 ease-out delay-100 ${
+            className={`text-sm sm:text-base md:text-[18px] leading-relaxed md:leading-[1.8] text-[#2D2926]/90 transition-all duration-700 ease-out delay-100 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -99,7 +99,7 @@ export default function Section3() {
 
         {/* Card Container - Scale and fade */}
         <div 
-          className={`bg-[#ECEAE6] rounded-[18px] grid grid-cols-1 md:grid-cols-2 gap-10 overflow-hidden transition-all duration-800 ease-out delay-200 ${
+          className={`bg-[#ECEAE6] rounded-[18px] grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 overflow-hidden transition-all duration-800 ease-out delay-200 ${
             isVisible 
               ? "opacity-100 scale-100" 
               : "opacity-0 scale-95"
@@ -107,7 +107,7 @@ export default function Section3() {
         >
           {/* Image Section - Slide from left with smooth transition */}
           <div 
-            className="relative w-full h-[420px] md:h-[520px] self-end overflow-hidden"
+            className="relative w-full h-[300px] sm:h-[380px] md:h-[420px] lg:h-[520px] self-end overflow-hidden order-1 md:order-none"
           >
             <div
               className={`relative w-full h-full transition-all duration-700 ease-in-out ${
@@ -130,14 +130,14 @@ export default function Section3() {
 
           {/* Text Section - Slide from right with staggered inner content */}
           <div 
-            className={`text-[#2D2926] py-8 md:py-14 pr-8 md:pr-14 pb-8 md:pb-14 transition-all duration-700 ease-out delay-400 ${
+            className={`text-[#2D2926] py-6 md:py-8 lg:py-14 px-5 md:px-6 lg:pr-14 pb-6 md:pb-8 lg:pb-14 transition-all duration-700 ease-out delay-400 order-2 md:order-none ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
             }`}
           >
-            <div className="mb-4">
+            <div className="mb-3 md:mb-4">
               {/* Logo with scale effect */}
               <div 
-                className={`relative w-50 h-20 mb-2 -ml-8 transition-all duration-500 ease-out delay-500 ${
+                className={`relative w-36 sm:w-40 md:w-50 h-14 sm:h-16 md:h-20 mb-2 -ml-6 md:-ml-8 transition-all duration-500 ease-out delay-500 ${
                   isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
                 }`}
               >
@@ -150,7 +150,7 @@ export default function Section3() {
               </div>
 
               <h3 
-                className={`font-semibold text-[28px] mb-4 transition-all duration-500 ease-out delay-550 ${
+                className={`font-semibold text-xl sm:text-2xl md:text-[28px] mb-3 md:mb-4 transition-all duration-500 ease-out delay-550 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
               >
@@ -158,7 +158,7 @@ export default function Section3() {
               </h3>
             </div>
 
-            <div className="space-y-5 text-[17px] leading-[1.8]">
+            <div className="space-y-3 md:space-y-5 text-sm sm:text-base md:text-[17px] leading-relaxed md:leading-[1.8]">
               {slides[currentSlide].descriptions.map((desc, idx) => (
                 <p 
                   key={idx}
@@ -175,7 +175,7 @@ export default function Section3() {
             </div>
 
             {/* Navigation Arrows inside the gray card */}
-            <div className="flex justify-between items-center mt-8">
+            <div className="flex justify-between items-center mt-6 md:mt-8">
               <button
                 onClick={prevSlide}
                 disabled={isTransitioning}
@@ -184,7 +184,7 @@ export default function Section3() {
                 } ${isTransitioning ? "pointer-events-none" : ""}`}
                 aria-label="Previous slide"
               >
-                <ArrowLeft size={22} className="text-[#2D2926]" />
+                <ArrowLeft size={20} className="md:w-[22px] md:h-[22px] text-[#2D2926]" />
               </button>
               
               <button
@@ -195,14 +195,14 @@ export default function Section3() {
                 } ${isTransitioning ? "pointer-events-none" : ""}`}
                 aria-label="Next slide"
               >
-                <ArrowRight size={22} className="text-[#2D2926]" />
+                <ArrowRight size={20} className="md:w-[22px] md:h-[22px] text-[#2D2926]" />
               </button>
             </div>
           </div>
         </div>
 
         {/* Slideshow Navigation Dots */}
-        <div className="flex justify-center gap-3 mt-8">
+        <div className="flex justify-center gap-2 md:gap-3 mt-6 md:mt-8">
           {slides.map((_, index) => (
             <button
               key={index}
@@ -210,8 +210,8 @@ export default function Section3() {
               disabled={isTransitioning}
               className={`transition-all duration-300 rounded-full ${
                 currentSlide === index 
-                  ? "w-8 h-2 bg-[#2D2926]" 
-                  : "w-2 h-2 bg-[#2D2926]/30 hover:bg-[#2D2926]/50"
+                  ? "w-6 md:w-8 h-1.5 md:h-2 bg-[#2D2926]" 
+                  : "w-1.5 md:w-2 h-1.5 md:h-2 bg-[#2D2926]/30 hover:bg-[#2D2926]/50"
               } ${isTransitioning ? "pointer-events-none" : ""}`}
               aria-label={`Go to slide ${index + 1}`}
             />

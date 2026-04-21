@@ -33,7 +33,7 @@ export default function Section4() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full h-[620px] md:h-[720px] font-crimson text-[#F3E7D7] overflow-hidden">
+    <section ref={sectionRef} className="relative w-full h-[560px] sm:h-[620px] md:h-[720px] font-crimson text-[#F3E7D7] overflow-hidden">
 
       {/* Background Image with scale animation */}
       <div 
@@ -60,21 +60,21 @@ export default function Section4() {
       />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-end pb-12 md:pb-16 px-6 md:px-16 lg:px-28">
+      <div className="relative z-10 h-full flex items-end pb-10 md:pb-12 lg:pb-16 px-5 md:px-6 lg:px-16 xl:px-28">
 
-        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
 
           {/* Left Column */}
           <div>
             <h3 
-              className={`font-semibold italic text-[40px] md:text-[48px] text-[#E7C9A1] mb-8 transition-all duration-700 ease-out delay-200 ${
+              className={`font-semibold italic text-3xl sm:text-4xl md:text-[40px] lg:text-[48px] text-[#E7C9A1] mb-5 md:mb-8 transition-all duration-700 ease-out delay-200 ${
                 isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
               }`}
             >
               Calendar of Events
             </h3>
 
-            <div className="space-y-3 text-[24px] md:text-[28px] leading-tight text-white">
+            <div className="space-y-2 md:space-y-3 text-lg sm:text-xl md:text-[24px] lg:text-[28px] leading-tight text-white">
               <p 
                 className={`transition-all duration-700 ease-out delay-300 ${
                   isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
@@ -99,8 +99,8 @@ export default function Section4() {
             </div>
           </div>
 
-          {/* Right Column - Added mt-8 to lower this column slightly */}
-          <div className="text-white text-[20px] md:text-[22px] leading-[1.2] space-y-5 mt-8 md:mt-12">
+          {/* Right Column */}
+          <div className="text-white text-base sm:text-lg md:text-[20px] lg:text-[22px] leading-relaxed md:leading-[1.2] space-y-3 md:space-y-5 mt-6 md:mt-8 lg:mt-12">
             <p 
               className={`transition-all duration-700 ease-out delay-300 ${
                 isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"

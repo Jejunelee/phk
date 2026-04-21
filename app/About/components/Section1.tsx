@@ -34,14 +34,14 @@ export default function Section3() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full bg-[#F5F3EF] py-24 px-6 md:px-16 lg:px-28 font-crimson overflow-hidden">
+    <section ref={sectionRef} className="w-full bg-[#F5F3EF] py-12 md:py-24 px-5 md:px-6 lg:px-16 xl:px-28 font-crimson overflow-hidden">
 
       <div className="max-w-6xl mx-auto">
 
         {/* Title Section */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
           <h2 
-            className={`font-semibold text-[34px] md:text-[40px] text-[#996D33] mb-6 transition-all duration-700 ease-out ${
+            className={`font-semibold text-2xl sm:text-3xl md:text-[34px] lg:text-[40px] text-[#996D33] mb-4 md:mb-6 transition-all duration-700 ease-out ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -49,7 +49,7 @@ export default function Section3() {
           </h2>
 
           <p 
-            className={`text-[18px] leading-[1.8] text-[#2D2926]/90 mb-6 transition-all duration-700 ease-out delay-100 ${
+            className={`text-sm sm:text-base md:text-[18px] leading-relaxed md:leading-[1.8] text-[#2D2926]/90 mb-4 md:mb-6 transition-all duration-700 ease-out delay-100 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -57,7 +57,7 @@ export default function Section3() {
           </p>
 
           <p 
-            className={`text-[18px] leading-[1.8] text-[#2D2926]/90 mb-6 transition-all duration-700 ease-out delay-200 ${
+            className={`text-sm sm:text-base md:text-[18px] leading-relaxed md:leading-[1.8] text-[#2D2926]/90 mb-4 md:mb-6 transition-all duration-700 ease-out delay-200 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -65,7 +65,7 @@ export default function Section3() {
           </p>
 
           <p 
-            className={`text-[18px] leading-[1.8] text-[#2D2926]/90 mb-6 transition-all duration-700 ease-out delay-300 ${
+            className={`text-sm sm:text-base md:text-[18px] leading-relaxed md:leading-[1.8] text-[#2D2926]/90 mb-4 md:mb-6 transition-all duration-700 ease-out delay-300 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -73,7 +73,7 @@ export default function Section3() {
           </p>
 
           <p 
-            className={`text-[18px] leading-[1.8] text-[#2D2926]/90 transition-all duration-700 ease-out delay-400 ${
+            className={`text-sm sm:text-base md:text-[18px] leading-relaxed md:leading-[1.8] text-[#2D2926]/90 transition-all duration-700 ease-out delay-400 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -81,7 +81,7 @@ export default function Section3() {
           </p>
 
           <p 
-            className={`text-[18px] leading-[1.8] text-[#2D2926]/90 mt-6 transition-all duration-700 ease-out delay-500 ${
+            className={`text-sm sm:text-base md:text-[18px] leading-relaxed md:leading-[1.8] text-[#2D2926]/90 mt-4 md:mt-6 transition-all duration-700 ease-out delay-500 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
