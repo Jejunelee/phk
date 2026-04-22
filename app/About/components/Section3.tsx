@@ -4,49 +4,48 @@ import Image from "next/image";
 
 export default function Section3() {
   return (
-    <section className="w-full bg-[#F5F3EF] py-12 md:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 font-crimson">
+    <section className="w-full bg-[#F5F3EF] py-12 md:py-12 px-6 lg:px-20 font-crimson">
       <div className="max-w-7xl mx-auto">
 
-        {/* Title Section */}
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#996D33] mb-4 md:mb-6 leading-tight">
+        {/* Title */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <h2 className="text-[28px] md:text-[32px] font-semibold text-[#996D33] mb-4">
             A Partnership Built on Purpose
           </h2>
 
-          <p className="text-sm sm:text-base md:text-lg leading-relaxed text-[#2D2926]/90 px-2">
+          <p className="text-[15px] md:text-[16px] leading-[1.6] text-[#2D2926]/90">
             PHK is more than a cooking class. It is a living classroom and cultural stage where Filipino food history,
             regional traditions, and the stories behind every ingredient come alive — led by Chef Reggie Aspiras,
             CCA Manila chefs, and guest culture bearers from across the archipelago.
           </p>
         </div>
 
-        {/* Cards Grid */}
-        <div className="flex flex-col gap-6 md:gap-8">
-          
-          {/* LEFT CARD - Mobile optimized */}
-          <div className="bg-[#ECEAE6] rounded-2xl overflow-hidden flex flex-col sm:flex-row items-stretch">
-            
-            {/* Image Container - Full width on mobile */}
-            <div className="relative w-full sm:w-[35%] lg:w-[40%] pt-6 px-6 pb-2 sm:p-6">
-              <div className="relative w-full aspect-[4/3] sm:aspect-auto sm:h-full min-h-[200px] sm:min-h-[300px]">
+        {/* Cards */}
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-6">
+
+          {/* LEFT CARD */}
+          <div className="bg-[#ECEAE6] rounded-[16px] overflow-hidden flex flex-col md:flex-row md:items-stretch min-h-[360px]">
+
+            {/* Image container - with top padding on mobile */}
+            <div className="relative w-full md:w-[40%] flex-shrink-0 md:m-4 md:ml-[-0.01] pt-6 md:pt-0">
+              <div className="relative w-full aspect-[4/3] md:aspect-auto md:h-full min-h-[200px] md:min-h-[280px]">
                 <Image
                   src="/PHK/16.png"
                   alt="Chef Reggie Aspiras"
                   fill
-                  className="object-contain"
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 35vw"
-                  priority={false}
+                  className="object-contain object-center"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 20vw"
                 />
               </div>
             </div>
 
-            {/* Text Container - Full width on mobile */}
-            <div className="w-full sm:w-[65%] lg:w-[60%] p-6 sm:p-6 md:p-8 flex flex-col justify-center">
-              <h3 className="text-xl sm:text-2xl md:text-[22px] font-semibold mb-3 md:mb-4 italic text-[#2D2926]">
+            {/* Text */}
+            <div className="w-full md:w-[60%] p-6 md:pr-8 md:pl-2 text-[#2D2926] flex flex-col justify-center">
+              <h3 className="text-[22px] font-semibold mb-4 italic">
                 Chef Reggie Aspiras
               </h3>
 
-              <div className="space-y-2.5 md:space-y-3 text-sm md:text-[14px] leading-relaxed text-[#2D2926]">
+              <div className="space-y-3 text-[14px] leading-[1.6]">
                 <p>
                   Chef and instructor in the culinary arts — author, Philippine Daily Inquirer columnist,
                   consultant, curator of culinary journeys, and Filipino food heritage advocate — whose work
@@ -65,30 +64,29 @@ export default function Section3() {
             </div>
           </div>
 
-          {/* RIGHT CARD - Mobile optimized */}
-          <div className="bg-[#5A3300] rounded-2xl overflow-hidden flex flex-col sm:flex-row items-stretch">
-            
-            {/* Image Container - Full width on mobile */}
-            <div className="relative w-full sm:w-[35%] lg:w-[40%] pt-6 px-6 pb-2 sm:p-6">
-              <div className="relative w-full aspect-[4/3] sm:aspect-auto sm:h-full min-h-[200px] sm:min-h-[300px]">
+          {/* RIGHT CARD */}
+          <div className="bg-[#5A3300] rounded-[16px] overflow-hidden flex flex-col md:flex-row md:items-stretch min-h-[360px] text-white">
+
+            {/* Image container - with top padding on mobile */}
+            <div className="relative w-full md:w-[40%] flex-shrink-0 md:m-4 md:ml-[-0.01] pt-6 md:pt-0">
+              <div className="relative w-full aspect-[4/3] md:aspect-auto md:h-full min-h-[200px] md:min-h-[280px]">
                 <Image
                   src="/PHK/17.png"
                   alt="CCA Manila"
                   fill
-                  className="object-contain"
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 35vw"
-                  priority={false}
+                  className="object-contain object-center"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 20vw"
                 />
               </div>
             </div>
 
-            {/* Text Container - Full width on mobile */}
-            <div className="w-full sm:w-[65%] lg:w-[60%] p-6 sm:p-6 md:p-8 flex flex-col justify-center">
-              <h3 className="text-xl sm:text-2xl md:text-[22px] font-semibold mb-3 md:mb-4 italic text-white">
+            {/* Text */}
+            <div className="w-full md:w-[60%] p-6 md:pr-8 md:pl-2 flex flex-col justify-center">
+              <h3 className="text-[22px] font-semibold mb-4 italic">
                 CCA Manila
               </h3>
 
-              <div className="space-y-2.5 md:space-y-3 text-sm md:text-[14px] leading-relaxed text-white/90">
+              <div className="space-y-3 text-[14px] leading-[1.6]">
                 <p>
                   The Center for Culinary Arts, Manila is the Philippines' foremost culinary institution,
                   training generations of Filipino chefs and food professionals who carry our culinary heritage forward.
