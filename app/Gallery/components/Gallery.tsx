@@ -13,112 +13,102 @@ const galleryEvents = [
     category: "Classes",
     description: "From salad to sizzling - exploring the many ways of Sisig",
     images: [
-      { id: 1, src: "/PHK/gallery/sisig1.png", alt: "Sisig preparation" },
-      { id: 2, src: "/PHK/gallery/sisig2.png", alt: "Sizzling sisig" },
-      { id: 3, src: "/PHK/gallery/sisig3.png", alt: "Chef demonstrating sisig" }
     ]
   },
   {
     id: 2,
+    title: "Flavors of the North: A Tribute to Ilocos",
+    date: "June 15, 2024",
+    category: "Tastings",
+    description: "A culinary journey through Ilocos region - from bagnet to pinakbet, celebrating the rich heritage of Northern Filipino cuisine",
+    images: [
+      { id: 1, src: "/FlavorsoftheNorth/6.png", alt: "Ilocos culinary spread" },
+      { id: 2, src: "/FlavorsoftheNorth/7.png", alt: "Traditional Ilocano dishes" },
+      { id: 3, src: "/FlavorsoftheNorth/8.png", alt: "Bagnet preparation" },
+      { id: 4, src: "/FlavorsoftheNorth/9.png", alt: "Ilocos food presentation" },
+      { id: 5, src: "/FlavorsoftheNorth/10.png", alt: "Local ingredients display" },
+      { id: 6, src: "/FlavorsoftheNorth/11.png", alt: "Cooking demonstration" },
+      { id: 7, src: "/FlavorsoftheNorth/12.png", alt: "Pinakbet showcase" },
+      { id: 8, src: "/FlavorsoftheNorth/13.png", alt: "Ilocano feast" },
+      { id: 9, src: "/FlavorsoftheNorth/14.png", alt: "Traditional cooking methods" },
+      { id: 10, src: "/FlavorsoftheNorth/15.png", alt: "Food tasting session" },
+      { id: 11, src: "/FlavorsoftheNorth/16.png", alt: "Culinary heritage display" },
+      { id: 13, src: "/FlavorsoftheNorth/18.png", alt: "Regional specialties" },
+      { id: 15, src: "/FlavorsoftheNorth/20.png", alt: "Celebration of Ilocano cuisine" }
+    ]
+  },
+  {
+    id: 3,
     title: "Lechon Wars",
     date: "June 20, 2024",
     category: "Tastings",
     description: "Carcar vs Talisay - Cebu Lechon showdown",
     images: [
-      { id: 1, src: "/PHK/gallery/lechon1.png", alt: "Whole lechon" },
-      { id: 2, src: "/PHK/gallery/lechon2.png", alt: "Lechon carving" },
-      { id: 3, src: "/PHK/gallery/lechon3.png", alt: "Tasting session" }
-    ]
-  },
-  {
-    id: 3,
-    title: "Philippine Ingredients",
-    date: "July 17, 2024",
-    category: "Classes",
-    description: "Pocket event highlighting local ingredients",
-    images: [
-      { id: 1, src: "/PHK/gallery/ingredients1.png", alt: "Local ingredients display" },
-      { id: 2, src: "/PHK/gallery/ingredients2.png", alt: "Cooking demonstration" }
     ]
   },
   {
     id: 4,
+    title: "Philippine Ingredients",
+    date: "July 17, 2024",
+    category: "Classes",
+    description: "Pocket event highlighting local ingredients",
+    images: [] // Coming Soon
+  },
+  {
+    id: 5,
     title: "Wow Mindanao",
     date: "August 22, 2024",
     category: "Talks",
     description: "Davao and Zamboanga culinary heritage",
-    images: [
-      { id: 1, src: "/PHK/gallery/mindanao1.png", alt: "Mindanao dishes" },
-      { id: 2, src: "/PHK/gallery/mindanao2.png", alt: "Cultural presentation" },
-      { id: 3, src: "/PHK/gallery/mindanao3.png", alt: "Food tasting" }
-    ]
+    images: [] // Coming Soon
   },
   {
-    id: 5,
+    id: 6,
     title: "Kakanin! Kanin!",
     date: "September 11-12, 2024",
     category: "Tastings",
     description: "Kakanin and Merienda spread celebration",
-    images: [
-      { id: 1, src: "/PHK/gallery/kakanin1.png", alt: "Colorful kakanin" },
-      { id: 2, src: "/PHK/gallery/kakanin2.png", alt: "Merienda spread" }
-    ]
+    images: [] // Coming Soon
   },
   {
-    id: 6,
+    id: 7,
     title: "Recipes from Cookbooks",
     date: "October 24, 2024",
     category: "Talks",
     description: "Exploring treasured recipes from Filipino cookbooks",
-    images: [
-      { id: 1, src: "/PHK/gallery/cookbooks1.png", alt: "Cookbook showcase" },
-      { id: 2, src: "/PHK/gallery/cookbooks2.png", alt: "Recipe demonstration" }
-    ]
+    images: [] // Coming Soon
   },
   {
-    id: 7,
+    id: 8,
     title: "Paskong Pilipino",
     date: "November 21-28, 2024",
     category: "Classes",
     description: "Family recipes for the Filipino Christmas",
-    images: [
-      { id: 1, src: "/PHK/gallery/pasko1.png", alt: "Christmas food preparation" },
-      { id: 2, src: "/PHK/gallery/pasko2.png", alt: "Family recipe cooking" },
-      { id: 3, src: "/PHK/gallery/pasko3.png", alt: "Holiday feast" }
-    ]
+    images: [] // Coming Soon
   },
   {
-    id: 8,
+    id: 9,
     title: "Almuzar",
     date: "December 5-6, 2024",
     category: "Promotions",
     description: "Almusal + Bazaar - Breakfast and market experience",
-    images: [
-      { id: 1, src: "/PHK/gallery/almuzar1.png", alt: "Breakfast spread" },
-      { id: 2, src: "/PHK/gallery/almuzar2.png", alt: "Bazaar vendors" }
-    ]
+    images: [] // Coming Soon
   },
   {
-    id: 9,
+    id: 10,
     title: "Heirloom Recipes",
     date: "January 24, 2025",
     category: "Classes",
     description: "Metro Manila cities' treasured family recipes",
-    images: [
-      { id: 1, src: "/PHK/gallery/heirloom1.png", alt: "Heirloom cooking" },
-      { id: 2, src: "/PHK/gallery/heirloom2.png", alt: "Family recipe demonstration" }
-    ]
+    images: [] // Coming Soon
   },
   {
-    id: 10,
+    id: 11,
     title: "Pares Pares",
     date: "February 21, 2025",
     category: "Promotions",
     description: "Perfect pairings - Wine and food matching",
-    images: [
-      { id: 1, src: "/PHK/gallery/pares1.png", alt: "Food and wine pairing" },
-      { id: 2, src: "/PHK/gallery/pares2.png", alt: "Perfect pairings event" }
-    ]
+    images: [] // Coming Soon
   }
 ];
 
@@ -190,6 +180,9 @@ export default function Gallery() {
 
   // Open lightbox with specific image index
   const openLightbox = (event: typeof galleryEvents[0], imageIndex: number = 0) => {
+    // Don't open lightbox if there are no images
+    if (event.images.length === 0) return;
+    
     setSelectedEvent(event);
     setCurrentImageIndex(imageIndex);
     document.body.style.overflow = 'hidden';
@@ -295,27 +288,63 @@ export default function Gallery() {
                 <div
                   key={event.id}
                   onClick={() => openLightbox(event, 0)}
-                  className="group relative overflow-hidden rounded-[16px] cursor-pointer"
+                  className={`group relative overflow-hidden rounded-[16px] ${
+                    event.images.length > 0 ? "cursor-pointer" : "cursor-default"
+                  }`}
                 >
-                  {/* Image Container - shows first image as cover */}
+                  {/* Image Container - shows first image as cover or placeholder */}
                   <div className="relative aspect-[4/3] bg-[#ECEAE6]">
-                    <Image
-                      src={event.images[0].src}
-                      alt={event.images[0].alt}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    
-                    {/* Multiple images indicator */}
-                    {event.images.length > 1 && (
-                      <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full">
-                        {event.images.length} photos
+                    {event.images.length > 0 ? (
+                      <>
+                        <Image
+                          src={event.images[0].src}
+                          alt={event.images[0].alt}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        
+                        {/* Multiple images indicator */}
+                        {event.images.length > 1 && (
+                          <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full">
+                            {event.images.length} photos
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      // Coming Soon Placeholder
+                      <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#ECEAE6] to-[#D4CFC8]">
+                        <div className="text-center p-6">
+                          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#996D33]/20 flex items-center justify-center">
+                            <svg className="w-8 h-8 text-[#996D33]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                          </div>
+                          <p className="text-[#996D33] font-semibold text-lg">Coming Soon</p>
+                          <p className="text-[#2D2926]/60 text-sm mt-1">Images will be added</p>
+                        </div>
                       </div>
                     )}
                     
-                    {/* Overlay on Hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#5A2D1C]/90 via-[#5A2D1C]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
+                    {/* Overlay on Hover - only for events with images */}
+                    {event.images.length > 0 && (
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#5A2D1C]/90 via-[#5A2D1C]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
+                          <span className="text-[#E7B879] text-xs md:text-sm font-semibold uppercase tracking-wider">
+                            {event.category}
+                          </span>
+                          <h3 className="text-white text-lg md:text-xl font-semibold mt-1">
+                            {event.title}
+                          </h3>
+                          <p className="text-white/70 text-sm mt-1">
+                            {event.date}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* Always show title overlay for Coming Soon events */}
+                    {event.images.length === 0 && (
+                      <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 bg-gradient-to-t from-black/60 to-transparent">
                         <span className="text-[#E7B879] text-xs md:text-sm font-semibold uppercase tracking-wider">
                           {event.category}
                         </span>
@@ -326,7 +355,7 @@ export default function Gallery() {
                           {event.date}
                         </p>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </div>
               ))}
@@ -362,7 +391,7 @@ export default function Gallery() {
       </div>
 
       {/* Carousel Lightbox Modal */}
-      {selectedEvent && (
+      {selectedEvent && selectedEvent.images.length > 0 && (
         <div 
           className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
           onClick={closeLightbox}
