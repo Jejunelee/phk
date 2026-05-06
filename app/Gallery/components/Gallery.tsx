@@ -17,9 +17,9 @@ const galleryEvents = [
   },
   {
     id: 2,
-    title: "Flavors of the North: A Tribute to Ilocos",
+    title: "PHK Launch & The Flavors of the North",
     date: "April 24 & 25, 2026",
-    category: "Tastings",
+    category: "Event",
     description: "A culinary journey through Ilocos region - from bagnet to pinakbet, celebrating the rich heritage of Northern Filipino cuisine",
     images: Array.from({ length: 48 }, (_, i) => ({
       id: i + 1,
@@ -104,13 +104,9 @@ const galleryEvents = [
   }
 ];
 
-// Category filter buttons
-const categories = ["All", "Classes", "Tastings", "Talks", "Promotions"];
-
 export default function Gallery() {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [activeCategory, setActiveCategory] = useState("All");
   const [selectedEvent, setSelectedEvent] = useState<typeof galleryEvents[0] | null>(null);
   const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
 
@@ -139,11 +135,8 @@ export default function Gallery() {
     };
   }, []);
 
-  // Filter events based on active category AND only show events with images
-  const filteredEvents = (activeCategory === "All" 
-    ? galleryEvents 
-    : galleryEvents.filter(event => event.category === activeCategory)
-  ).filter(event => event.images.length > 0);
+  // Show only events with images
+  const eventsWithImages = galleryEvents.filter(event => event.images.length > 0);
 
   // Open collage view
   const openCollage = (event: typeof galleryEvents[0]) => {
@@ -227,41 +220,16 @@ export default function Gallery() {
 
       </section>
 
-      {/* Filter Bar */}
-      <div className="sticky top-0 z-20 bg-[#F5F3EF] border-b border-[#2D2926]/10 py-4 px-5 md:px-6 lg:px-16 xl:px-28">
-        <div className="max-w-7xl mx-auto flex flex-wrap gap-2 md:gap-3 justify-center md:justify-start">
-          {categories.map((category) => {
-            const count = category === "All" 
-              ? galleryEvents.filter(e => e.images.length > 0).length
-              : galleryEvents.filter(e => e.category === category && e.images.length > 0).length;
-            
-            return (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-4 md:px-6 py-2 md:py-2.5 text-sm md:text-base rounded-full transition-all duration-300 font-medium ${
-                  activeCategory === category
-                    ? "bg-[#996D33] text-white"
-                    : "bg-white text-[#2D2926] hover:bg-[#ECEAE6] border border-[#2D2926]/20"
-                }`}
-              >
-                {category} ({count})
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
       {/* Gallery List - Image Left, Text Right Layout with Equal Heights */}
       <div className="w-full bg-[#F5F3EF] py-8 md:py-12">
         <div className="max-w-7xl mx-auto px-5 md:px-6 lg:px-16 xl:px-28">
-          {filteredEvents.length === 0 ? (
+          {eventsWithImages.length === 0 ? (
             <div className="text-center py-16 md:py-24">
-              <p className="text-[#2D2926]/60 text-lg">No events with photos found in this category.</p>
+              <p className="text-[#2D2926]/60 text-lg">No events with photos found.</p>
             </div>
           ) : (
             <div className="space-y-8 md:space-y-12">
-              {filteredEvents.map((event, index) => (
+              {eventsWithImages.map((event, index) => (
                 <div 
                   key={event.id}
                   className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-6 md:gap-8 lg:gap-12 items-stretch bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300`}
