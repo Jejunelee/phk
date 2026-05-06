@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X } from "lucide-react";
 
 // Gallery data structure with multiple images per event
 const galleryEvents = [
@@ -18,24 +18,14 @@ const galleryEvents = [
   {
     id: 2,
     title: "Flavors of the North: A Tribute to Ilocos",
-    date: "June 15, 2024",
+    date: "April 24 & 25, 2026",
     category: "Tastings",
     description: "A culinary journey through Ilocos region - from bagnet to pinakbet, celebrating the rich heritage of Northern Filipino cuisine",
-    images: [
-      { id: 1, src: "/FlavorsoftheNorth/6.png", alt: "Ilocos culinary spread" },
-      { id: 2, src: "/FlavorsoftheNorth/7.png", alt: "Traditional Ilocano dishes" },
-      { id: 3, src: "/FlavorsoftheNorth/8.png", alt: "Bagnet preparation" },
-      { id: 4, src: "/FlavorsoftheNorth/9.png", alt: "Ilocos food presentation" },
-      { id: 5, src: "/FlavorsoftheNorth/10.png", alt: "Local ingredients display" },
-      { id: 6, src: "/FlavorsoftheNorth/11.png", alt: "Cooking demonstration" },
-      { id: 7, src: "/FlavorsoftheNorth/12.png", alt: "Pinakbet showcase" },
-      { id: 8, src: "/FlavorsoftheNorth/13.png", alt: "Ilocano feast" },
-      { id: 9, src: "/FlavorsoftheNorth/14.png", alt: "Traditional cooking methods" },
-      { id: 10, src: "/FlavorsoftheNorth/15.png", alt: "Food tasting session" },
-      { id: 11, src: "/FlavorsoftheNorth/16.png", alt: "Culinary heritage display" },
-      { id: 13, src: "/FlavorsoftheNorth/18.png", alt: "Regional specialties" },
-      { id: 15, src: "/FlavorsoftheNorth/20.png", alt: "Celebration of Ilocano cuisine" }
-    ]
+    images: Array.from({ length: 48 }, (_, i) => ({
+      id: i + 1,
+      src: `/FlavorsoftheNorth/North (${i + 1}).jpg`,
+      alt: `Flavors of the North - Image ${i + 1}`
+    }))
   },
   {
     id: 3,
@@ -52,7 +42,8 @@ const galleryEvents = [
     date: "July 17, 2024",
     category: "Classes",
     description: "Pocket event highlighting local ingredients",
-    images: [] // Coming Soon
+    images: [
+    ]
   },
   {
     id: 5,
@@ -60,7 +51,8 @@ const galleryEvents = [
     date: "August 22, 2024",
     category: "Talks",
     description: "Davao and Zamboanga culinary heritage",
-    images: [] // Coming Soon
+    images: [
+    ]
   },
   {
     id: 6,
@@ -68,7 +60,7 @@ const galleryEvents = [
     date: "September 11-12, 2024",
     category: "Tastings",
     description: "Kakanin and Merienda spread celebration",
-    images: [] // Coming Soon
+    images: []
   },
   {
     id: 7,
@@ -76,7 +68,7 @@ const galleryEvents = [
     date: "October 24, 2024",
     category: "Talks",
     description: "Exploring treasured recipes from Filipino cookbooks",
-    images: [] // Coming Soon
+    images: []
   },
   {
     id: 8,
@@ -84,7 +76,7 @@ const galleryEvents = [
     date: "November 21-28, 2024",
     category: "Classes",
     description: "Family recipes for the Filipino Christmas",
-    images: [] // Coming Soon
+    images: []
   },
   {
     id: 9,
@@ -92,7 +84,7 @@ const galleryEvents = [
     date: "December 5-6, 2024",
     category: "Promotions",
     description: "Almusal + Bazaar - Breakfast and market experience",
-    images: [] // Coming Soon
+    images: []
   },
   {
     id: 10,
@@ -100,7 +92,7 @@ const galleryEvents = [
     date: "January 24, 2025",
     category: "Classes",
     description: "Metro Manila cities' treasured family recipes",
-    images: [] // Coming Soon
+    images: []
   },
   {
     id: 11,
@@ -108,7 +100,7 @@ const galleryEvents = [
     date: "February 21, 2025",
     category: "Promotions",
     description: "Perfect pairings - Wine and food matching",
-    images: [] // Coming Soon
+    images: []
   }
 ];
 
@@ -120,7 +112,7 @@ export default function Gallery() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedEvent, setSelectedEvent] = useState<typeof galleryEvents[0] | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -147,49 +139,28 @@ export default function Gallery() {
     };
   }, []);
 
-  // Filter events based on active category
-  const filteredEvents = activeCategory === "All" 
+  // Filter events based on active category AND only show events with images
+  const filteredEvents = (activeCategory === "All" 
     ? galleryEvents 
-    : galleryEvents.filter(event => event.category === activeCategory);
+    : galleryEvents.filter(event => event.category === activeCategory)
+  ).filter(event => event.images.length > 0);
 
-  // Carousel navigation
-  const nextImage = () => {
-    if (selectedEvent) {
-      setCurrentImageIndex((prev) => (prev + 1) % selectedEvent.images.length);
-    }
-  };
-
-  const prevImage = () => {
-    if (selectedEvent) {
-      setCurrentImageIndex((prev) => (prev - 1 + selectedEvent.images.length) % selectedEvent.images.length);
-    }
-  };
-
-  // Handle keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (!selectedEvent) return;
-      if (e.key === 'ArrowRight') nextImage();
-      if (e.key === 'ArrowLeft') prevImage();
-      if (e.key === 'Escape') setSelectedEvent(null);
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedEvent, currentImageIndex]);
-
-  // Open lightbox with specific image index
-  const openLightbox = (event: typeof galleryEvents[0], imageIndex: number = 0) => {
-    // Don't open lightbox if there are no images
+  // Open collage view
+  const openCollage = (event: typeof galleryEvents[0]) => {
     if (event.images.length === 0) return;
-    
     setSelectedEvent(event);
-    setCurrentImageIndex(imageIndex);
+    setSelectedImage(null);
     document.body.style.overflow = 'hidden';
   };
 
-  const closeLightbox = () => {
+  // Open single image view from collage
+  const openImageView = (image: { src: string; alt: string }) => {
+    setSelectedImage(image);
+  };
+
+  const closeModal = () => {
     setSelectedEvent(null);
+    setSelectedImage(null);
     document.body.style.overflow = 'unset';
   };
 
@@ -259,103 +230,102 @@ export default function Gallery() {
       {/* Filter Bar */}
       <div className="sticky top-0 z-20 bg-[#F5F3EF] border-b border-[#2D2926]/10 py-4 px-5 md:px-6 lg:px-16 xl:px-28">
         <div className="max-w-7xl mx-auto flex flex-wrap gap-2 md:gap-3 justify-center md:justify-start">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-4 md:px-6 py-2 md:py-2.5 text-sm md:text-base rounded-full transition-all duration-300 font-medium ${
-                activeCategory === category
-                  ? "bg-[#996D33] text-white"
-                  : "bg-white text-[#2D2926] hover:bg-[#ECEAE6] border border-[#2D2926]/20"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
+          {categories.map((category) => {
+            const count = category === "All" 
+              ? galleryEvents.filter(e => e.images.length > 0).length
+              : galleryEvents.filter(e => e.category === category && e.images.length > 0).length;
+            
+            return (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-4 md:px-6 py-2 md:py-2.5 text-sm md:text-base rounded-full transition-all duration-300 font-medium ${
+                  activeCategory === category
+                    ? "bg-[#996D33] text-white"
+                    : "bg-white text-[#2D2926] hover:bg-[#ECEAE6] border border-[#2D2926]/20"
+                }`}
+              >
+                {category} ({count})
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      {/* Gallery Grid */}
+      {/* Gallery List - Image Left, Text Right Layout with Equal Heights */}
       <div className="w-full bg-[#F5F3EF] py-8 md:py-12">
         <div className="max-w-7xl mx-auto px-5 md:px-6 lg:px-16 xl:px-28">
           {filteredEvents.length === 0 ? (
             <div className="text-center py-16 md:py-24">
-              <p className="text-[#2D2926]/60 text-lg">No events found in this category.</p>
+              <p className="text-[#2D2926]/60 text-lg">No events with photos found in this category.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              {filteredEvents.map((event) => (
-                <div
+            <div className="space-y-8 md:space-y-12">
+              {filteredEvents.map((event, index) => (
+                <div 
                   key={event.id}
-                  onClick={() => openLightbox(event, 0)}
-                  className={`group relative overflow-hidden rounded-[16px] ${
-                    event.images.length > 0 ? "cursor-pointer" : "cursor-default"
-                  }`}
+                  className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-6 md:gap-8 lg:gap-12 items-stretch bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300`}
                 >
-                  {/* Image Container - shows first image as cover or placeholder */}
-                  <div className="relative aspect-[4/3] bg-[#ECEAE6]">
-                    {event.images.length > 0 ? (
-                      <>
-                        <Image
-                          src={event.images[0].src}
-                          alt={event.images[0].alt}
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                        
-                        {/* Multiple images indicator */}
-                        {event.images.length > 1 && (
-                          <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full">
-                            {event.images.length} photos
-                          </div>
-                        )}
-                      </>
-                    ) : (
-                      // Coming Soon Placeholder
-                      <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#ECEAE6] to-[#D4CFC8]">
-                        <div className="text-center p-6">
-                          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#996D33]/20 flex items-center justify-center">
-                            <svg className="w-8 h-8 text-[#996D33]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {/* Image Section - Stretches to full height of text container */}
+                  <div 
+                    className="w-full md:w-1/2 relative cursor-pointer group overflow-hidden"
+                    onClick={() => openCollage(event)}
+                  >
+                    <div className="relative w-full h-full min-h-[300px] md:min-h-full">
+                      <Image
+                        src={event.images[0].src}
+                        alt={event.images[0].alt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      
+                      {/* Hover Overlay - View Collage */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all duration-300 flex items-center justify-center">
+                        <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-100 scale-95">
+                          <div className="bg-white/90 backdrop-blur-sm text-[#2D2926] px-6 py-3 rounded-full text-base md:text-lg font-semibold flex items-center gap-2 shadow-lg">
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
+                            View Collage ({event.images.length} Photos)
                           </div>
-                          <p className="text-[#996D33] font-semibold text-lg">Coming Soon</p>
-                          <p className="text-[#2D2926]/60 text-sm mt-1">Images will be added</p>
                         </div>
                       </div>
-                    )}
-                    
-                    {/* Overlay on Hover - only for events with images */}
-                    {event.images.length > 0 && (
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#5A2D1C]/90 via-[#5A2D1C]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
-                          <span className="text-[#E7B879] text-xs md:text-sm font-semibold uppercase tracking-wider">
-                            {event.category}
-                          </span>
-                          <h3 className="text-white text-lg md:text-xl font-semibold mt-1">
-                            {event.title}
-                          </h3>
-                          <p className="text-white/70 text-sm mt-1">
-                            {event.date}
-                          </p>
+
+                      {/* Multiple images indicator badge */}
+                      {event.images.length > 1 && (
+                        <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-white text-xs px-2 py-1 rounded-full">
+                          {event.images.length} photos
                         </div>
-                      </div>
-                    )}
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Text Section - Determines the height of the container */}
+                  <div className="w-full md:w-1/2 p-6 md:p-8 lg:p-10 flex flex-col justify-center">
+                    <span className="inline-block px-3 py-1 bg-[#996D33]/10 text-[#996D33] text-xs md:text-sm font-semibold rounded-full mb-3 w-fit">
+                      {event.category}
+                    </span>
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#2D2926] mb-2">
+                      {event.title}
+                    </h3>
+                    <p className="text-[#996D33] text-sm md:text-base font-medium mb-4">
+                      {event.date}
+                    </p>
+                    <p className="text-[#2D2926]/70 text-base md:text-lg leading-relaxed">
+                      {event.description}
+                    </p>
                     
-                    {/* Always show title overlay for Coming Soon events */}
-                    {event.images.length === 0 && (
-                      <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 bg-gradient-to-t from-black/60 to-transparent">
-                        <span className="text-[#E7B879] text-xs md:text-sm font-semibold uppercase tracking-wider">
-                          {event.category}
-                        </span>
-                        <h3 className="text-white text-lg md:text-xl font-semibold mt-1">
-                          {event.title}
-                        </h3>
-                        <p className="text-white/70 text-sm mt-1">
-                          {event.date}
-                        </p>
-                      </div>
-                    )}
+                    {/* View Collage Button */}
+                    <button
+                      onClick={() => openCollage(event)}
+                      className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 border-2 border-[#996D33] text-[#996D33] hover:bg-[#996D33] hover:text-white rounded-full transition-all duration-300 font-medium text-sm md:text-base group w-fit"
+                    >
+                      <svg className="w-5 h-5 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      View Photo Collage ({event.images.length})
+                    </button>
                   </div>
                 </div>
               ))}
@@ -369,7 +339,9 @@ export default function Gallery() {
         <div className="max-w-7xl mx-auto px-5 md:px-6 lg:px-16 xl:px-28">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
             <div>
-              <p className="text-[#996D33] text-3xl md:text-4xl font-semibold">{galleryEvents.length}</p>
+              <p className="text-[#996D33] text-3xl md:text-4xl font-semibold">
+                {galleryEvents.filter(e => e.images.length > 0).length}
+              </p>
               <p className="text-[#2D2926]/70 text-sm md:text-base mt-1">Events</p>
             </div>
             <div>
@@ -390,82 +362,119 @@ export default function Gallery() {
         </div>
       </div>
 
-      {/* Carousel Lightbox Modal */}
-      {selectedEvent && selectedEvent.images.length > 0 && (
+      {/* Collage Modal */}
+      {selectedEvent && !selectedImage && (
         <div 
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
-          onClick={closeLightbox}
+          className="fixed inset-0 z-50 bg-black/95 overflow-y-auto"
+          onClick={closeModal}
         >
-          {/* Close button */}
-          <button 
-            className="absolute top-4 right-4 md:top-6 md:right-6 text-white hover:text-[#E7B879] transition-colors z-10"
-            onClick={closeLightbox}
-          >
-            <X size={32} />
-          </button>
-          
-          {/* Carousel Container */}
-          <div 
-            className="relative w-full h-full flex items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Previous button */}
-            {selectedEvent.images.length > 1 && (
-              <button
-                onClick={prevImage}
-                className="absolute left-4 md:left-6 text-white hover:text-[#E7B879] transition-colors bg-black/50 rounded-full p-2 backdrop-blur-sm z-10"
-              >
-                <ChevronLeft size={36} />
-              </button>
-            )}
+          <div className="min-h-screen py-8 md:py-12 px-4 md:px-8">
+            {/* Close button */}
+            <button 
+              className="fixed top-4 right-4 md:top-6 md:right-6 text-white hover:text-[#E7B879] transition-colors z-20 bg-black/50 rounded-full p-2 backdrop-blur-sm"
+              onClick={closeModal}
+            >
+              <X size={28} />
+            </button>
 
-            {/* Current Image */}
-            <div className="relative w-full h-full flex items-center justify-center p-16 md:p-20">
-              <div className="relative w-full h-full max-w-6xl max-h-[80vh]">
-                <Image
-                  src={selectedEvent.images[currentImageIndex].src}
-                  alt={selectedEvent.images[currentImageIndex].alt}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            </div>
-
-            {/* Next button */}
-            {selectedEvent.images.length > 1 && (
-              <button
-                onClick={nextImage}
-                className="absolute right-4 md:right-6 text-white hover:text-[#E7B879] transition-colors bg-black/50 rounded-full p-2 backdrop-blur-sm z-10"
-              >
-                <ChevronRight size={36} />
-              </button>
-            )}
-
-            {/* Image Counter */}
-            {selectedEvent.images.length > 1 && (
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-sm text-white px-3 py-1.5 rounded-full text-sm">
-                {currentImageIndex + 1} / {selectedEvent.images.length}
-              </div>
-            )}
-          </div>
-
-          {/* Event Info Panel */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6 md:p-8">
-            <div className="max-w-6xl mx-auto">
-              <span className="text-[#E7B879] text-sm font-semibold uppercase tracking-wider">
+            {/* Event Info Header */}
+            <div className="max-w-7xl mx-auto mb-8 md:mb-12 text-center">
+              <span className="inline-block px-3 py-1 bg-[#996D33]/20 text-[#E7B879] text-xs md:text-sm font-semibold rounded-full mb-3">
                 {selectedEvent.category}
               </span>
-              <h3 className="text-white text-xl md:text-2xl lg:text-3xl font-semibold mt-1">
+              <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
                 {selectedEvent.title}
-              </h3>
-              <p className="text-white/70 text-sm md:text-base mt-1">
+              </h2>
+              <p className="text-[#E7B879] text-sm md:text-base mb-3">
                 {selectedEvent.date}
               </p>
-              <p className="text-white/80 text-sm md:text-base mt-2 max-w-2xl">
+              <p className="text-white/70 text-base md:text-lg max-w-2xl mx-auto">
                 {selectedEvent.description}
               </p>
+              <p className="text-white/50 text-sm mt-4">
+                {selectedEvent.images.length} photos in this collection
+              </p>
+            </div>
+
+            {/* Masonry Collage Grid */}
+            <div 
+              className="max-w-7xl mx-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 md:gap-6 space-y-4 md:space-y-6">
+                {selectedEvent.images.map((image) => (
+                  <div
+                    key={image.id}
+                    className="break-inside-avoid cursor-pointer group relative overflow-hidden rounded-xl bg-white/10 backdrop-blur-sm"
+                    onClick={() => openImageView(image)}
+                  >
+                    <div className="relative w-full">
+                      <Image
+                        src={image.src}
+                        alt={image.alt}
+                        width={500}
+                        height={400}
+                        className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                        style={{ height: 'auto' }}
+                      />
+                      {/* Overlay on hover */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Optional caption */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <p className="text-white text-xs truncate">{image.alt}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Single Image View Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[60] bg-black/98 flex items-center justify-center"
+          onClick={closeModal}
+        >
+          <button 
+            className="absolute top-4 right-4 md:top-6 md:right-6 text-white hover:text-[#E7B879] transition-colors z-20 bg-black/50 rounded-full p-2 backdrop-blur-sm"
+            onClick={closeModal}
+          >
+            <X size={28} />
+          </button>
+          
+          <div 
+            className="relative w-full h-full flex items-center justify-center p-8 md:p-12"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative max-w-7xl max-h-[85vh] w-full h-full">
+              <Image
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
+          
+          {/* Back to collage button */}
+          <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm transition-all duration-300 flex items-center gap-2"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Collage
+          </button>
         </div>
       )}
     </>
