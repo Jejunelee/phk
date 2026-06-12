@@ -10,18 +10,17 @@ export default function Section4() {
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
-  // First set: Calendar of Events
+  // First set: Calendar of Events - UPDATED DATES
   const events = [
-    { date: "May 29", title: "Sisig Festival from Salad to Sizzling" },
-    { date: "Jun 20", title: "Lechon Wars + Traditional Cebuano Fare — Cebu Lechon: Carcar vs Talisay" },
-    { date: "Jul 17", title: "Philippine Ingredients 1 (pocket event)" },
-    { date: "Aug 22", title: "Wow Mindanao (Davao Zamboanga)" },
-    { date: "Sep 11–12", title: "Kakanin! Kanin! (Kakanin + Merienda Spread)" },
-    { date: "Oct 24", title: "Recipes from Cookbooks" },
-    { date: "Nov 21/28", title: "Paskong Pilipino - Family Recipes" },
-    { date: "Dec 5–6", title: "Almuzar (Almusal + Bazaar)" },
-    { date: "Jan 24", title: "Heirloom Recipes of Metro Manila Cities" },
-    { date: "Feb 21", title: "Pares Pares - Perfect Pairings" }
+    { date: "June 28", title: "Once Upon a Time in Malabon – Malabon Food Festival" },
+    { date: "July 19", title: "Philippine Ingredients" },
+    { date: "August 21–22", title: "Lechon Wars + Traditional Cebuano Fare – Cebu Lechon: Carcar vs Talisay" },
+    { date: "September 11–12", title: "Kakanin! Kanin! (Kakanin + Merienda Spread)" },
+    { date: "October 24", title: "Recipes from Cookbooks" },
+    { date: "November 21 & 28", title: "Paskong Pilipino – Family Recipes" },
+    { date: "December 5–6", title: "Almuzar (Almusal + Bazaar)" },
+    { date: "January 24", title: "Heirloom Recipes of Metro Manila Cities" },
+    { date: "February 21", title: "Pares Pares – Perfect Pairings" }
   ];
 
   // Second set: Text content
