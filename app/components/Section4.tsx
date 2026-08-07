@@ -12,9 +12,7 @@ export default function Section4() {
 
   // First set: Calendar of Events - UPDATED DATES
   const events = [
-    { date: "June 28", title: "Once Upon a Time in Malabon – Malabon Food Festival" },
-    { date: "July 19", title: "Philippine Ingredients" },
-    { date: "August 21–22", title: "Lechon Wars + Traditional Cebuano Fare – Cebu Lechon: Carcar vs Talisay" },
+    { date: "August 22", title: "Lechon Wars + Traditional Cebuano Fare – Cebu Lechon: Carcar vs Talisay" },
     { date: "September 11–12", title: "Kakanin! Kanin! (Kakanin + Merienda Spread)" },
     { date: "October 24", title: "Recipes from Cookbooks" },
     { date: "November 21 & 28", title: "Paskong Pilipino – Family Recipes" },
@@ -158,7 +156,7 @@ export default function Section4() {
                           {events.map((event, index) => (
                             <p 
                               key={index}
-                              className={`text-sm sm:text-base md:text-lg lg:text-[20px] leading-relaxed text-white/90 hover:text-white transition-all duration-700 ease-out ${
+                              className={`text-sm sm:text-base md:text-lg lg:text-[23px] leading-relaxed text-white/90 hover:text-white transition-all duration-700 ease-out ${
                                 isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
                               }`}
                               style={{ transitionDelay: `${300 + index * 40}ms` }}
@@ -267,7 +265,7 @@ export default function Section4() {
           >
             <div className="relative w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-full">
               <Image
-                src="/Featured/1.png"
+                src="/Featured/1.jpg"
                 alt="Featured culinary heritage event"
                 width={500}
                 height={500}
