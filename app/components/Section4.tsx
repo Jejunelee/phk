@@ -5,18 +5,67 @@ import { supabase } from "@/app/lib/supabase/client";
 import type { Section4Settings, Section4Event } from "@/app/types/PHK/Section4";
 import Image from "next/image";
 
-// Fallback data in case Supabase is not available
-const FALLBACK_EVENTS = [
-  { id: 1, date: "August 22", title: "Lechon Wars + Traditional Cebuano Fare – Cebu Lechon: Carcar vs Talisay", display_order: 1 },
-  { id: 2, date: "September 11–12", title: "Kakanin! Kanin! (Kakanin + Merienda Spread)", display_order: 2 },
-  { id: 3, date: "October 24", title: "Recipes from Cookbooks", display_order: 3 },
-  { id: 4, date: "November 21 & 28", title: "Paskong Pilipino – Family Recipes", display_order: 4 },
-  { id: 5, date: "December 5–6", title: "Almuzar (Almusal + Bazaar)", display_order: 5 },
-  { id: 6, date: "January 24", title: "Heirloom Recipes of Metro Manila Cities", display_order: 6 },
-  { id: 7, date: "February 21", title: "Pares Pares – Perfect Pairings", display_order: 7 }
+// Fallback data with required created_at and updated_at fields
+const FALLBACK_EVENTS: Section4Event[] = [
+  { 
+    id: 1, 
+    date: "August 22", 
+    title: "Lechon Wars + Traditional Cebuano Fare – Cebu Lechon: Carcar vs Talisay", 
+    display_order: 1,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  { 
+    id: 2, 
+    date: "September 11–12", 
+    title: "Kakanin! Kanin! (Kakanin + Merienda Spread)", 
+    display_order: 2,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  { 
+    id: 3, 
+    date: "October 24", 
+    title: "Recipes from Cookbooks", 
+    display_order: 3,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  { 
+    id: 4, 
+    date: "November 21 & 28", 
+    title: "Paskong Pilipino – Family Recipes", 
+    display_order: 4,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  { 
+    id: 5, 
+    date: "December 5–6", 
+    title: "Almuzar (Almusal + Bazaar)", 
+    display_order: 5,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  { 
+    id: 6, 
+    date: "January 24", 
+    title: "Heirloom Recipes of Metro Manila Cities", 
+    display_order: 6,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  { 
+    id: 7, 
+    date: "February 21", 
+    title: "Pares Pares – Perfect Pairings", 
+    display_order: 7,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  }
 ];
 
-const FALLBACK_SETTINGS = {
+const FALLBACK_SETTINGS: Partial<Section4Settings> = {
   section_title: "Calendar of Events",
   text_color: '#F3E7D7',
   accent_color: '#E7C9A1',
