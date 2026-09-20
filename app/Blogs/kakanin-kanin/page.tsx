@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ImageCarousel from "@/app/Blogs/components/ImageCarousel";
 import { getBlogBySlug, kakaninMakers } from "@/app/Blogs/data";
@@ -188,6 +189,21 @@ export default function KakaninKaninPage() {
               served?
             </p>
 
+            <figure className="py-2">
+              <div className="relative overflow-hidden rounded-2xl bg-[#2D2926] shadow-md aspect-[16/10]">
+                <Image
+                  src="/Blogs/kakanin-kanin/2.jpg"
+                  alt="Suman bongon, banana-leaf suman, and other kakanin at the festival spread"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="mt-3 text-sm text-[#2D2926]/70 italic">
+                Suman Bongon, Tita Darlyn’s special, and Suman sa Gata
+              </figcaption>
+            </figure>
+
             <p>
               Beyond food traditions, kakanin persists because of the
               Philippines’ merienda culture—having lighter snacks mid-day to
@@ -202,6 +218,21 @@ export default function KakaninKaninPage() {
               Kakanin is also an art form — like this bilao of kakanin that is a
               feast for the eyes and the mouth.
             </p>
+
+            <figure className="py-2">
+              <div className="relative overflow-hidden rounded-2xl bg-[#2D2926] shadow-md aspect-[16/10]">
+                <Image
+                  src="/Blogs/kakanin-kanin/6.jpg"
+                  alt="A bilao of colorful kakanin arranged as a feast"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="mt-3 text-sm text-[#2D2926]/70 italic">
+                A bilao of kakanin
+              </figcaption>
+            </figure>
 
             <p>
               The Philippines’ archipelagic culture reveals its beauty in facets
