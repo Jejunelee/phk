@@ -71,6 +71,14 @@ export default function Header() {
             Gallery
           </Link>
           <Link
+            href="/Blogs"
+            className={`transition duration-300 ${
+              scrolled ? "text-white/90 hover:text-white" : "text-white hover:opacity-80"
+            }`}
+          >
+            Blogs
+          </Link>
+          <Link
             href="/ContactUs"
             className={`transition duration-300 ${
               scrolled ? "text-white/90 hover:text-white" : "text-white hover:opacity-80"
@@ -109,7 +117,7 @@ export default function Header() {
         className={`
           md:hidden absolute top-full left-0 w-full transition-all duration-300 ease-out overflow-hidden
           bg-gradient-to-r from-[#472518] to-[#472518]
-          ${isMenuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}
+          ${isMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"}
         `}
       >
         <nav className="flex flex-col items-center gap-5 py-6 font-jost text-base tracking-wide">
@@ -126,6 +134,13 @@ export default function Header() {
             onClick={closeMenu}
           >
             Gallery
+          </Link>
+          <Link
+            href="/Blogs"
+            className="text-white hover:opacity-80 transition"
+            onClick={closeMenu}
+          >
+            Blogs
           </Link>
           <Link
             href="/ContactUs"
