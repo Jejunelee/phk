@@ -10,12 +10,19 @@ export type BlogMaker = {
   dishes: string[];
 };
 
+export type BlogAuthor = {
+  name: string;
+  bio: string;
+  image: string;
+};
+
 export type BlogPost = {
   slug: string;
   title: string;
   date: string;
   category: string;
   excerpt: string;
+  author: BlogAuthor;
   coverImage: BlogImage;
   images: BlogImage[];
 };
@@ -28,6 +35,11 @@ export const blogPosts: BlogPost[] = [
     category: "Festival",
     excerpt:
       "The Philippine Heritage Kitchen hosted Kakanin Kanin! at the Glasshouse at New World Makati — bringing makers and eaters together to celebrate kakanin culture and heritage.",
+    author: {
+      name: "Gwyneth King",
+      bio: "Gwyneth King is a writer and photographer based in Quezon City. Her pursuits revolve around culture, creativity, community, and craftsmanship.",
+      image: "/Blogs/authors/gwyneth-king.jpg",
+    },
     coverImage: {
       src: "/Blogs/kakanin-kanin/1.jpg",
       alt: "Putong Marikina and tamales at the Kakanin Kanin buffet",

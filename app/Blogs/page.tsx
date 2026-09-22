@@ -51,7 +51,7 @@ export default function BlogsPage() {
                       {post.title}
                     </h2>
                     <p className="text-[#996D33] text-sm md:text-base font-medium mb-4">
-                      {post.date}
+                      By {post.author.name} · {post.date}
                     </p>
                     <p className="text-[#2D2926]/70 text-base md:text-lg leading-relaxed">
                       {post.excerpt}
