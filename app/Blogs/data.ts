@@ -34,7 +34,7 @@ export const blogPosts: BlogPost[] = [
     date: "August 22, 2026",
     category: "Festival",
     excerpt:
-      "The Philippine Heritage Kitchen hosted Kakanin Kanin! at the Glasshouse at New World Makati — bringing makers and eaters together to celebrate kakanin culture and heritage.",
+      "The Philippine Heritage Kitchen, founded and curated by Chef Reggie Aspiras, in partnership with CCA Manila, hosted Kakanin Kanin! at the Glasshouse at New World Makati — bringing makers and eaters together to celebrate kakanin culture and heritage.",
     author: {
       name: "Gwyneth King",
       bio: "Gwyneth King is a writer and photographer based in Quezon City. Her pursuits revolve around culture, creativity, community, and craftsmanship.",

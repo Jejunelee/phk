@@ -91,10 +91,12 @@ export default function KakaninKaninPage() {
             </p>
 
             <p>
-              The Philippine Heritage Kitchen hosted the kakanin festival{" "}
-              <em>Kakanin Kanin!</em> last August 22 at the Glasshouse at New
-              World Makati, bringing together makers and eaters all in one place
-              to celebrate our kakanin culture and heritage.
+              The Philippine Heritage Kitchen, founded and curated by Chef
+              Reggie Aspiras, in partnership with CCA Manila, hosted the
+              kakanin festival <em>Kakanin Kanin!</em> last August 22 at the
+              Glasshouse at New World Makati, bringing together makers and
+              eaters all in one place to celebrate our kakanin culture and
+              heritage.
             </p>
 
             <h2 className="font-crimson text-2xl sm:text-3xl md:text-[34px] text-[#996D33] pt-6">
@@ -177,13 +179,13 @@ export default function KakaninKaninPage() {
               triangular tamales from Bulacan, tikoy sa anahaw from Quezon
               wrapped like mini-bouquets, deep violet puto bao from Los Baños,
               and bilaos filled with bibingka, palitaw, and so much more. Chef
-              Reggie Aspiras, who co-organizes Philippine Heritage Kitchen with
-              CCA Manila, dedicated a hearty and nostalgic merienda spread
-              dedicated to her mother, Amparo Apiras, inspired by the meals of
-              her childhood — featuring heirloom pancit palabok, Agoo dinuguan,
-              kalabasa arroz caldo, Lola’s binignit, Candon Calamay, sago’t
-              gulaman, among others, which was the perfect savory touch to
-              balance out the carb-rich buffet.
+              Reggie Aspiras, who is the founder and curator of Philippine
+              Heritage Kitchen, dedicated a hearty and nostalgic merienda
+              spread dedicated to her mother, Amparo Apiras, inspired by the
+              meals of her childhood — featuring heirloom pancit palabok, Agoo
+              dinuguan, kalabasa arroz caldo, Lola’s binignit, Candon Calamay,
+              sago’t gulaman, among others, which was the perfect savory touch
+              to balance out the carb-rich buffet.
             </p>
 
             <p className="text-xl md:text-2xl text-[#996D33] italic">
