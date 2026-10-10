@@ -7,59 +7,123 @@ import Image from "next/image";
 
 // Fallback data with required created_at and updated_at fields
 const FALLBACK_EVENTS: Section4Event[] = [
-  { 
-    id: 1, 
-    date: "August 22", 
-    title: "Lechon Wars + Traditional Cebuano Fare – Cebu Lechon: Carcar vs Talisay", 
+  {
+    id: 1,
+    date: "September 20, 2026",
+    title: "Zamboanga | Halal Horizons Summit",
     display_order: 1,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString()
   },
-  { 
-    id: 2, 
-    date: "September 11–12", 
-    title: "Kakanin! Kanin! (Kakanin + Merienda Spread)", 
+  {
+    id: 2,
+    date: "October 24–25, 2026",
+    title: "Hikay | Cebu Heritage Cuisine – Cebu's Best Lechons",
     display_order: 2,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString()
   },
-  { 
-    id: 3, 
-    date: "October 24", 
-    title: "Recipes from Cookbooks", 
+  {
+    id: 3,
+    date: "November 21–22, 2026",
+    title: "All Day Breakfast (Alumsal + Bazaar)",
     display_order: 3,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString()
   },
-  { 
-    id: 4, 
-    date: "November 21 & 28", 
-    title: "Paskong Pilipino – Family Recipes", 
+  {
+    id: 4,
+    date: "January 30, 2027",
+    title: "The Tsinoy Table: Celebration of Chinese-Filipino Culinary Heritage",
     display_order: 4,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString()
   },
-  { 
-    id: 5, 
-    date: "December 5–6", 
-    title: "Almuzar (Almusal + Bazaar)", 
+  {
+    id: 5,
+    date: "February 20, 2027",
+    title: "Philippine Street Food Festival",
     display_order: 5,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString()
   },
-  { 
-    id: 6, 
-    date: "January 24", 
-    title: "Heirloom Recipes of Metro Manila Cities", 
+  {
+    id: 6,
+    date: "March 20, 2027",
+    title: "Pagkaing Cuaresma",
     display_order: 6,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString()
   },
-  { 
-    id: 7, 
-    date: "February 21", 
-    title: "Pares Pares – Perfect Pairings", 
+  {
+    id: 7,
+    date: "April 24, 2027",
+    title: "Lutuing Laguna at Quezon: Flavors of the Lake and the Sea | Laguna & Quezon",
     display_order: 7,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 8,
+    date: "May 22, 2027",
+    title: "Iloilo: The Heartbeat of Western Visayan Cuisine",
+    display_order: 8,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 9,
+    date: "June 19, 2027",
+    title: "Kusina at Kasaysayan: The Flavors of Cavite | Independence Month",
+    display_order: 9,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 10,
+    date: "June 27, 2027",
+    title: "Once Upon a Time in Malabon: A Taste of Old Manila",
+    display_order: 10,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 11,
+    date: "July 24, 2027",
+    title: "Pampanga – A Feast of Pampanga's Culinary Heritage",
+    display_order: 11,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 12,
+    date: "August 21, 2027",
+    title: "Flavors of the Highlands: Davao, Bukidnon & Northern Mindanao",
+    display_order: 12,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 13,
+    date: "September 25, 2027",
+    title: "The Filipino Pantry: Bagoong, Suka & Asin",
+    display_order: 13,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 14,
+    date: "October 24, 2027",
+    title: "Lutong Gata: The Coconut Kitchens of Bicol & Samar",
+    display_order: 14,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 15,
+    date: "November 20, 2027",
+    title: "Paskong Pamana: A Philippine Heritage Christmas Bazaar",
+    display_order: 15,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString()
   }
@@ -71,7 +135,7 @@ const FALLBACK_SETTINGS: Partial<Section4Settings> = {
   accent_color: '#E7C9A1',
   event_date_color: '#E7C9A1',
   background_image_url: '/PHK/9.png',
-  featured_image_url: '/Featured/1.jpg',
+  featured_image_url: '/Featured/hikay-cebu-heritage.jpg',
   overlay_opacity: 0.9,
   intro_text: "Join us for our monthly culinary heritage celebrations! Each event features hands-on cooking demonstrations, heritage storytelling, and authentic taste experiences.",
   slots_text: "Limited slots available for each event. Early registration is recommended to secure your participation in these unique culinary journeys across the Philippines.",
@@ -204,7 +268,7 @@ export default function Section4() {
   // Content from settings or fallback
   const sectionTitle = settings.section_title || "Calendar of Events";
   const backgroundImage = settings.background_image_url || "/PHK/9.png";
-  const featuredImage = settings.featured_image_url || "/Featured/1.jpg";
+  const featuredImage = settings.featured_image_url || "/Featured/hikay-cebu-heritage.jpg";
   
   const introText = settings.intro_text || "Join us for our monthly culinary heritage celebrations! Each event features hands-on cooking demonstrations, heritage storytelling, and authentic taste experiences.";
   const slotsText = settings.slots_text || "Limited slots available for each event. Early registration is recommended to secure your participation in these unique culinary journeys across the Philippines.";
@@ -393,9 +457,9 @@ export default function Section4() {
             <div className="relative w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-full">
               <Image
                 src={featuredImage}
-                alt="Featured culinary heritage event"
-                width={500}
-                height={500}
+                alt="Hikay, a Cebu heritage food festival"
+                width={819}
+                height={1024}
                 className="w-full h-auto rounded-xl shadow-2xl"
                 priority
                 sizes="(max-width: 640px) 90vw, (max-width: 768px) 80vw, (max-width: 1024px) 70vw, 40vw"
