@@ -139,11 +139,22 @@ const FALLBACK_SETTINGS: Partial<Section4Settings> = {
   overlay_opacity: 0.9,
   intro_text: "Join us for our monthly culinary heritage celebrations! Each event features hands-on cooking demonstrations, heritage storytelling, and authentic taste experiences.",
   slots_text: "Limited slots available for each event. Early registration is recommended to secure your participation in these unique culinary journeys across the Philippines.",
-  location_text: "Brittany Hotel, BGC, Taguig",
-  email_text: "hello@phk.com.ph",
+  location_text: "New World Makati Hotel\nEsperanza Street corner Makati Avenue\nAyala Center, Makati City 1228",
+  email_text: "inquiryphk@gmail.com",
   mobile_text: "+63 912 345 6789",
   quote_text: "We believe you can be a better cook or chef if you know your roots"
 };
+
+const EVENTS_PER_SLIDE = 8;
+const PREVIOUS_LOCATION = "Brittany Hotel, BGC, Taguig";
+
+function chunkEvents<T>(items: T[], size: number): T[][] {
+  const chunks: T[][] = [];
+  for (let i = 0; i < items.length; i += size) {
+    chunks.push(items.slice(i, i + size));
+  }
+  return chunks.length > 0 ? chunks : [[]];
+}
 
 export default function Section4() {
   const [settings, setSettings] = useState<Partial<Section4Settings>>(FALLBACK_SETTINGS);
@@ -217,12 +228,16 @@ export default function Section4() {
     };
   }, []);
 
+  const displayEvents = events.length > 0 ? events : FALLBACK_EVENTS;
+  const eventSlides = chunkEvents(displayEvents, EVENTS_PER_SLIDE);
+  const slideCount = eventSlides.length + 1;
+
   const nextSlide = () => {
-    setActiveSlide((prev) => (prev + 1) % 2);
+    setActiveSlide((prev) => (prev + 1) % slideCount);
   };
 
   const prevSlide = () => {
-    setActiveSlide((prev) => (prev - 1 + 2) % 2);
+    setActiveSlide((prev) => (prev - 1 + slideCount) % slideCount);
   };
 
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
@@ -272,12 +287,16 @@ export default function Section4() {
   
   const introText = settings.intro_text || "Join us for our monthly culinary heritage celebrations! Each event features hands-on cooking demonstrations, heritage storytelling, and authentic taste experiences.";
   const slotsText = settings.slots_text || "Limited slots available for each event. Early registration is recommended to secure your participation in these unique culinary journeys across the Philippines.";
-  const locationText = settings.location_text || "Brittany Hotel, BGC, Taguig";
-  const emailText = settings.email_text || "hello@phk.com.ph";
+  const locationText =
+    !settings.location_text || settings.location_text === PREVIOUS_LOCATION
+      ? FALLBACK_SETTINGS.location_text
+      : settings.location_text;
+  const emailText =
+    !settings.email_text || settings.email_text === "hello@phk.com.ph"
+      ? FALLBACK_SETTINGS.email_text
+      : settings.email_text;
   const mobileText = settings.mobile_text || "+63 912 345 6789";
   const quoteText = settings.quote_text || "We believe you can be a better cook or chef if you know your roots";
-
-  const displayEvents = events.length > 0 ? events : FALLBACK_EVENTS;
 
   return (
     <section 
@@ -328,36 +347,37 @@ export default function Section4() {
                   style={{ transform: `translateX(-${activeSlide * 100}%)` }}
                 >
                   <div className="flex h-full">
-                    {/* Slide 1 - Calendar of Events */}
-                    <div className="w-full flex-shrink-0 h-full flex flex-col">
-                      <div className="flex-1 flex flex-col">
-                        <h3 
-                          className={`font-semibold italic text-2xl sm:text-3xl md:text-4xl lg:text-[40px] mb-4 sm:mb-5 md:mb-6 transition-all duration-700 ease-out delay-200 ${
-                            isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
-                          }`}
-                          style={{ color: accentColor }}
-                        >
-                          {sectionTitle}
-                        </h3>
+                    {eventSlides.map((slideEvents, slideIndex) => (
+                      <div key={slideIndex} className="w-full flex-shrink-0 h-full flex flex-col">
+                        <div className="flex-1 flex flex-col">
+                          <h3 
+                            className={`font-semibold italic text-2xl sm:text-3xl md:text-4xl lg:text-[40px] mb-4 sm:mb-5 md:mb-6 transition-all duration-700 ease-out delay-200 ${
+                              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
+                            }`}
+                            style={{ color: accentColor }}
+                          >
+                            {sectionTitle}
+                          </h3>
 
-                        <div className="flex-1 space-y-2 sm:space-y-3 md:space-y-4 overflow-y-auto pr-2 custom-scrollbar">
-                          {displayEvents.map((event, index) => (
-                            <p 
-                              key={event.id || index}
-                              className={`text-sm sm:text-base md:text-lg lg:text-[23px] leading-relaxed text-white/90 hover:text-white transition-all duration-700 ease-out ${
-                                isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
-                              }`}
-                              style={{ transitionDelay: `${300 + index * 40}ms` }}
-                            >
-                              <span className="font-semibold block sm:inline" style={{ color: eventDateColor }}>{event.date}</span> 
-                              <span className="block sm:inline sm:ml-1">- {event.title}</span>
-                            </p>
-                          ))}
+                          <div className="flex-1 space-y-2 sm:space-y-3 md:space-y-4 pr-2">
+                            {slideEvents.map((event, index) => (
+                              <p 
+                                key={event.id || index}
+                                className={`text-sm sm:text-base md:text-lg lg:text-[23px] leading-relaxed text-white/90 hover:text-white transition-all duration-700 ease-out ${
+                                  isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
+                                }`}
+                                style={{ transitionDelay: `${300 + index * 40}ms` }}
+                              >
+                                <span className="font-semibold block sm:inline" style={{ color: eventDateColor }}>{event.date}</span> 
+                                <span className="block sm:inline sm:ml-1">- {event.title}</span>
+                              </p>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    ))}
 
-                    {/* Slide 2 - Text Content */}
+                    {/* Event Details */}
                     <div className="w-full flex-shrink-0 h-full flex flex-col">
                       <div className="flex-1 flex flex-col">
                         <h3 
@@ -384,7 +404,7 @@ export default function Section4() {
 
                           <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-5 rounded-lg border" style={{ borderColor: `${accentColor}30` }}>
                             <p className="font-semibold mb-2 text-base sm:text-lg md:text-[20px]" style={{ color: accentColor }}>Location:</p>
-                            <p className="text-sm sm:text-base lg:text-lg">{locationText}</p>
+                            <p className="text-sm sm:text-base lg:text-lg whitespace-pre-line">{locationText}</p>
                             
                             <p className="font-semibold mt-4 mb-2 text-base sm:text-lg md:text-[20px]" style={{ color: accentColor }}>For Inquiries:</p>
                             <p className="text-sm sm:text-base lg:text-lg break-all">Email: {emailText}</p>
@@ -404,22 +424,17 @@ export default function Section4() {
 
             {/* Slide Indicators */}
             <div className="flex justify-center gap-2 mt-6 sm:mt-8">
-              <button
-                onClick={() => setActiveSlide(0)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  activeSlide === 0 ? "w-6 sm:w-8" : "w-2 bg-white/40 hover:bg-white/60"
-                }`}
-                style={{ backgroundColor: activeSlide === 0 ? accentColor : undefined }}
-                aria-label="Go to calendar of events"
-              />
-              <button
-                onClick={() => setActiveSlide(1)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  activeSlide === 1 ? "w-6 sm:w-8" : "w-2 bg-white/40 hover:bg-white/60"
-                }`}
-                style={{ backgroundColor: activeSlide === 1 ? accentColor : undefined }}
-                aria-label="Go to event details"
-              />
+              {Array.from({ length: slideCount }, (_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveSlide(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    activeSlide === index ? "w-6 sm:w-8" : "w-2 bg-white/40 hover:bg-white/60"
+                  }`}
+                  style={{ backgroundColor: activeSlide === index ? accentColor : undefined }}
+                  aria-label={index === slideCount - 1 ? "Go to event details" : "Go to calendar of events"}
+                />
+              ))}
             </div>
 
             {/* Navigation Buttons */}
@@ -434,7 +449,7 @@ export default function Section4() {
                 </svg>
               </button>
               <span className="text-sm sm:text-base font-semibold" style={{ color: accentColor }}>
-                {activeSlide + 1} / 2
+                {activeSlide + 1} / {slideCount}
               </span>
               <button
                 onClick={nextSlide}

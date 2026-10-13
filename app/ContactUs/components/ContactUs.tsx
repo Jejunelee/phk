@@ -66,9 +66,20 @@ export default function ContactUs() {
     }
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("Form submitted:", formData);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        setSubmitStatus({
+          type: "error",
+          message: result.error || "Something went wrong. Please try again later.",
+        });
+        return;
+      }
 
       setSubmitStatus({
         type: "success",
